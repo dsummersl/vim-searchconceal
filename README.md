@@ -22,6 +22,11 @@ When you want to un-hide everything, simply type `:SearchConcealClear`
 
 ![Example screenshot](./docs/disabled.png)
 
+Maybe just hide all tags by searching for tags with `/<[^>]*>` and the command
+`:SearchConceal` (or in a one liner in a script: `:SearchConceal '<[^>]*>'`):
+
+![Example screenshot](./docs/enabled-hide-tags.png)
+
 Installation
 ------------
 
