@@ -1,8 +1,7 @@
 Overview
 ========
 
-Sometimes you want to hide the things you're searching for, without modifying
-the file that you are looking at. This plugin lets you do that, using [conceal](https://vimhelp.org/syntax.txt.html#conceal) to hide the search pattern (`@/`) in the current buffer.
+This Vim plugin lets you hide patterns of a buffer's content without modification, using Vim's [conceal](https://vimhelp.org/syntax.txt.html#conceal) feature.
 
 Use
 ---
