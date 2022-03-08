@@ -7,35 +7,47 @@ the file that you are looking at. This plugin lets you do that, using [conceal](
 Use
 ---
 
-1. See something in the file you that is distracting, say "dependency"? Type `:SearchConceal 'dependency'` (or some other regular expression)
-2. All matches are concealed with "a".
-3. Hide something you searched for, say `/Id`. Type `/Id` to search, and `:SearchConceal` (by default SearchConceal conceals the `@/` register)
-4. All matches are concealed with "b".
-5. Hide another thing
-6. All matches are concealed with "c".
-7. Hide another thing
-8. You get the idea, I hope!
-
-![Example screenshot](./docs/enabled.png)
-
-When you want to un-hide everything, simply type `:SearchConcealClear`
+Imagine you have a file, full of uninteresting tags and text:
 
 ![Example screenshot](./docs/disabled.png)
 
-Maybe just hide all tags by searching for tags with `/<[^>]*>` and the command
-`:SearchConceal` (or in a one liner in a script: `:SearchConceal '<[^>]*>'`):
+This plugin lets you hide distracting text:
+
+1. Don't want to see "dependency"? Type `:SearchConceal 'dependency'` (or some other regular expression)
+2. All matches are concealed with an "a".
+3. Maybe you find "Id" too redundant. You can search for `/Id`, and then type `:SearchConceal` to conceal all the matches (by default the `:SearchConceal` command uses the pattern in the `@/` register).
+4. The second match is concealed with a "b".
+5. A third concealed pattern uses "c", 4th "d", 5th, "e", etc
+
+![Example screenshot](./docs/enabled.png)
+
+Using regular expressions lets you hide arbitrary patterns. For example, hiding the content of all tags with `/<[^>]*>` and the command
+`:SearchConceal` (or maybe as a one liner in a script `:SearchConceal '<[^>]*>'`):
 
 ![Example screenshot](./docs/enabled-hide-tags.png)
+
+When you want to see everything again, type `:SearchConcealClear`.
 
 Installation
 ------------
 
-Use your favorite plugin manager to install the plugin, for instance, Vundle:
+Use your favorite plugin manager to install the vim-searchconceal.
+
+Vundle:
 
     Plugin 'dsummersl/vim-searchconceal'
 
-If desired, add mappings:
-
-    " Conceal the latest search
+    " Add mappings if desired:
     map <leader>ch :SearchConceal<CR>
     map <leader>cc :SearchConcealClear<CR>
+
+Packer:
+
+    use {'dsummersl/vim-searchconceal', config = function()
+      vim.cmd([[
+        " Conceal the latest search
+        map ,cc :SearchConcealClear<CR>
+        map ,ch :SearchConceal<CR>
+      ]])
+    end}
+
