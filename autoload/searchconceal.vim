@@ -17,7 +17,13 @@ function! s:GroupConcealSyntax(group, pattern, cchar, offsetParameters)
   if !&magic
     let p = '\M'. p
   end
-  exe 'syntax match '. a:group .' /'. p .'/'. a:offsetParameters .' conceal cchar='. a:cchar .' containedin=ALL'
+
+  let cchar = 'cchar='. a:cchar
+  if strlen(a:cchar) > 1
+    let cchar = ''
+  endif
+
+  exe 'syntax match '. a:group .' /'. p .'/'. a:offsetParameters .' conceal '. cchar .' containedin=ALL'
 endfunction
 
 " Conceal the current search pattern.

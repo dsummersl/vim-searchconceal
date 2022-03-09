@@ -47,7 +47,9 @@ call to `:SearchConceal`)
 
 **:SearchConceal char**
 
-Conceal the current pattern in `@/` with `char`
+Conceal the current pattern in `@/` with `char`. If char is more than one
+character, then the pattern is concealed altogether (`syntax match` doesn't
+support conceal with cchar > 1 characters anyway!)
 
 **:SearchConceal char pattern**
 
