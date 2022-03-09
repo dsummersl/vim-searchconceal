@@ -31,6 +31,12 @@ to all your xml files.
 When you want to see everything again, type `:SearchConcealClear`.
 
 
+Personally, I use this for ad-hoc hiding, and also to hide some syntax in java.
+My ~/.vim/syntax/after/java.vim file is configured to show "Some<Generic>" as
+"Some<~>" to cut down on the visual clutter:
+
+    SearchConceal ~ <[A-z<>,\ ]\+> ms=s+1,me=e-1
+
 Commands
 --------
 
