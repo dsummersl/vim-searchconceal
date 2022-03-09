@@ -19,7 +19,7 @@ function! s:GroupConcealSyntax(group, pattern, cchar, offsetParameters)
   end
 
   let cchar = 'cchar='. a:cchar
-  if strlen(a:cchar) > 1
+  if strchars(a:cchar) > 1
     let cchar = ''
   endif
 
